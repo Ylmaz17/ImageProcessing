@@ -1,0 +1,20 @@
+# Kütüphaneler import edilir
+import cv2 as cv
+
+# resim dosyası okunur
+resim = cv.imread("sincap.jpg",0)
+
+# Okunan resim dosyasının yükseklik ve genişlik değerlerini bir diziye atıyoruz
+
+yukseklik = resim.shape[0]
+genislik = resim.shape[1]
+
+# for döngüleri kullanılarak pixellerin teker terker tersi alınrak yeni görüntü oluşturulur.
+for i in range(0,yukseklik):
+    for j in range (0,genislik):
+        resim[i][j] = 255 - resim[i][j]
+
+# Ters çevrilmiş görüntü yazdırılır
+
+cv .imshow("Sincap",resim)
+cv.waitKey();
